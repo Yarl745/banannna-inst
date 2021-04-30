@@ -1,0 +1,10 @@
+version: "3.5"
+
+
+services:
+  banannna-inst:
+    build:
+      context: .
+    restart: always
+    env_file:
+      - ".env"

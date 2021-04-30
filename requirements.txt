@@ -1,0 +1,10 @@
+instabot
+environs~=8.0.0
+git+https://git@github.com/ping/instagram_private_api.git@1.6.0
+pytesseract
+asgiref
+Pillow==8.0.1
+aioredis==1.3.1
+asyncpg
+apscheduler
+aiohttp[speedups]
