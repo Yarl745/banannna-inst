@@ -6,7 +6,7 @@ env.read_env()
 IG_USERNAME = env.str("IG_USERNAME")
 IG_PASSWORD = env.str("IG_PASSWORD")
 
-IP = env.str("IP")
+BOT_IP = env.str("BOT_IP")
 
 PG_USER = env.str("PG_USER")
 PG_PASSWORD = env.str("PG_PASSWORD")
@@ -18,5 +18,6 @@ WEBHOOK_SSL_PKEY = "webhook_pkey.pem"
 
 REDIS_PASS = env.str("REDIS_PASS")
 
-WEBAPP_HOST = f"https://{IP}:8443"
+BOT_HOST = f"https://{BOT_IP}:8443"
+CONTROLLER_HOST = f"https://{BOT_IP}:1313"
 

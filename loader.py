@@ -3,9 +3,7 @@ import ssl
 import instabot
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-from utils import logging
-
-from data.config import WEBHOOK_SSL_CERT, WEBHOOK_SSL_PKEY, IP, REDIS_PASS
+from data.config import WEBHOOK_SSL_CERT, WEBHOOK_SSL_PKEY
 
 inst = instabot.Bot(save_logfile=False)
 
