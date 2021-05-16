@@ -17,6 +17,7 @@ async def check_stories():
     try:
         logging.info("~~~~~~~~~~~~~~~~~~START CHECK STORIES~~~~~~~~~~~~~~~~~~")
         success_threads_count = 0
+        threads_count = 0
 
         update_cookie()
 
@@ -25,8 +26,6 @@ async def check_stories():
 
         pending_threads: list = await get_pending_threads(inst)
         await sleep(1)
-
-        threads_count = len(pending_threads)
 
         for thread in pending_threads:
             item: dict = thread["last_permanent_item"]
@@ -60,8 +59,11 @@ async def check_stories():
                 banana_num = await show_last_stories(user_image_stories, count=3) if count_img_stories > 0 else None
                 if banana_num:
                     await notify_succeeded_stories(ig_username, banana_num)
+                    success_threads_count += 1
                 elif count_img_stories > 0 or count_video_stories > 0:
                     await notify_failed_stories(ig_username)
+
+            threads_count += 1
 
             await hide_thread(thread_id, inst)
             await sleep(1)
