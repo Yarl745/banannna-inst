@@ -36,9 +36,11 @@ async def check_stories():
             ig_username = user["username"]
             ig_user_id = user["pk"]
 
+            threads_count += 1
+
             if thread["thread_type"] != "private":
                 await hide_thread(thread_id, inst)
-                await sleep(1)
+                await sleep(0.5)
                 continue
 
             if item_type == "reel_share" and item["reel_share"]["mentioned_user_id"] == inst.user_id:
@@ -53,7 +55,7 @@ async def check_stories():
 
             else:
                 user_image_stories, user_video_stories = await get_user_stories(ig_user_id, inst)
-                await sleep(1)
+                await sleep(0.5)
 
                 count_img_stories, count_video_stories = len(user_image_stories), len(user_video_stories)
                 banana_num = await show_last_stories(user_image_stories, count=3) if count_img_stories > 0 else None
@@ -63,10 +65,8 @@ async def check_stories():
                 elif count_img_stories > 0 or count_video_stories > 0:
                     await notify_failed_stories(ig_username)
 
-            threads_count += 1
-
             await hide_thread(thread_id, inst)
-            await sleep(1)
+            await sleep(0.5)
 
         inst.logout()
         await notify_reboot_aws(
