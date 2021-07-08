@@ -18,6 +18,9 @@ WEBHOOK_SSL_PKEY = "webhook_pkey.pem"
 
 REDIS_PASS = env.str("REDIS_PASS")
 
-BOT_HOST = f"https://{BOT_IP}:8443"
-CONTROLLER_HOST = f"https://{BOT_IP}:1313"
+BOT_PORT = env.str("BOT_PORT")
+CONTROLLER_PORT = env.str("CONTROLLER_PORT")
+
+BOT_HOST = f"https://{BOT_IP}:{BOT_PORT}"
+CONTROLLER_HOST = f"https://{BOT_IP}:{CONTROLLER_PORT}"
 
