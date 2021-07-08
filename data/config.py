@@ -13,8 +13,8 @@ PG_PASSWORD = env.str("PG_PASSWORD")
 PG_DB = env.str("PG_DB")
 PG_PORT = env.str("PG_PORT")
 
-WEBHOOK_SSL_CERT = "webhook_cert.pem"
-WEBHOOK_SSL_PKEY = "webhook_pkey.pem"
+WEBHOOK_SSL_CERT = "cert.pem"
+WEBHOOK_SSL_PKEY = "pkey.pem"
 
 REDIS_PASS = env.str("REDIS_PASS")
 
